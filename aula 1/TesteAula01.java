@@ -9,7 +9,7 @@ public class TesteAula01 {
         c2.mostrarInfo(null);
         c3.mostrarInfo(null);
 
-        c1.anda();
+        c1.anda(0);
     }
 
 }
