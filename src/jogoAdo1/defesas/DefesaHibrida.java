@@ -1,4 +1,4 @@
-package ado1;
+package jogoAdo1.defesas;
 
 import java.util.Random;
 
@@ -14,14 +14,14 @@ public class DefesaHibrida extends Defesa {
     @Override
     public int danoReduzido(int danoOriginal) {
         Random rd = new Random();
-        int sorteio = rd.nextInt(100);
-
-        if (sorteio < chanceEsquiva) {
-            System.out.println("Esquivou completamente!");
+        if (rd.nextInt(100) < this.chanceEsquiva) {
+            System.out.println("Esquivou!");
             return 0;
         }
 
-        int danoFinal = danoOriginal - reducao;
-        return Math.max(danoFinal, 0);
+        if (this.reducao > danoOriginal) {
+            return 0;
+        }
+        return danoOriginal - this.reducao;
     }
 }

@@ -1,4 +1,4 @@
-package ado1;
+package jogoAdo1.armas;
 
 public class ArcoEFlecha extends Arma {
     public ArcoEFlecha() {
