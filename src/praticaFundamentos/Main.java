@@ -14,39 +14,51 @@ public class Main {
         float nota3;
 
         System.out.println("===== Exercício da Média =====");
-
-        System.out.print("\nDigite seu nome: "); // Trocado '/n' por '\n'
-        aluno = ler.next();
-
+        aluno = inserirNome("Digite seu nome: ");
         System.out.println("\nDigite suas notas: ");
+        nota1 = inserirNotas("Digite sua nota 1: ");
+        nota2 = inserirNotas("Digite sua nota 2: ");
+        nota3 = inserirNotas("Digite sua nota 3: ");
 
-        // Removido o 'for' para preencher as variáveis em sequência de forma mais limpa
-        System.out.print("Digite sua nota 1: ");
-        nota1 = ler.nextFloat(); // Trocado nextInt() por nextFloat()
+        float resultadoMedia = calcularMedia(nota1, nota2, nota3);
+        String resultadoSituacao = verificarSituacao(resultadoMedia);
 
-        System.out.print("Digite sua nota 2: ");
-        nota2 = ler.nextFloat();
+        System.out.printf("\nSeus resultados:" +
+                "\nNome: %s | Sua média é: %.2f | Situação: %s\n", aluno, resultadoMedia, resultadoSituacao);
 
-        System.out.print("Digite sua nota 3: ");
-        nota3 = ler.nextFloat();
+        ler.close();
+    }
 
-        float media = (nota1 + nota2 + nota3) / 3;
+    public static String inserirNome(String msg){
+        System.out.print(msg);
+        return ler.next();
+    }
 
+    public static float inserirNotas(String msg){
+        System.out.print(msg);
+        return ler.nextFloat();
+    }
+
+    public static float calcularMedia(float nota1, float nota2, float nota3){
+        return (nota1 + nota2 + nota3) / 3;
+    }
+
+    public static String verificarSituacao(float resultadoMedia){
         String situacao;
 
-        if (media >= 8) {
+        if (resultadoMedia >= 8) {
             situacao = "Aprovado com sucesso"; // 2. Guardamos o texto na variável
-        } else if (media >= 6 && media < 8) {
+        } else if (resultadoMedia >= 6 && resultadoMedia < 8) {
             situacao = "Aprovado";
-        } else if (media >= 3 && media < 6) {
+        } else if (resultadoMedia >= 3 && resultadoMedia < 6) {
             situacao = "Recuperação";
-        } else if (media < 3 && media >= 0.5) {
+        } else if (resultadoMedia < 3 && resultadoMedia >= 0.5) {
             situacao = "Reprovado";
         } else {
             situacao = "Desistente";
         }
 
-        System.out.printf("\nSeus resultados:" +
-                "\nNome: %s | Sua média é: %.2f | Situação: %s\n", aluno, media, situacao);
+        return situacao;
     }
+
 }
