@@ -1,12 +1,11 @@
 package praticaFundamentos;
 
 public class Produto {
-
-    private String produto;
     private int qtd;
+    private String produto;
     private float preco;
 
-    public Produto(String produto, int qtd, float preco) {
+    public Produto(int qtd, float preco, String produto) {
         this.produto = produto;
         this.qtd = qtd;
         this.preco = preco;
