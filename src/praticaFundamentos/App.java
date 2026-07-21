@@ -6,6 +6,6 @@ public class App {
         System.out.println("==== Mercado ====");
 
         Tela tela = new Tela();
-        tela.iniciarMenu();
+        tela.iniciarMenu(); // inicia o menu
     }
 }
